@@ -60,6 +60,8 @@ cnorea w!! w !sudo tee % > /dev/null
 
 map <Leader>d :NERDTreeToggle<CR>
 map <Leader>g :Gstatus<CR>
+" quick access to recently open files
+nmap ; :CtrlPBuffer<CR>
 
 let g:ctrlp_custom_ignore = '.git$\|tmp/\|public/\|.sw[ompn]$\|.DS_STORE$\|bin/\|tags$'
 let g:syntastic_ruby_checkers=['rubocop']
