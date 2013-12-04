@@ -60,7 +60,7 @@ map <Leader>d :NERDTreeToggle<CR>
 map <Leader>g :Gstatus<CR>
 
 let g:ctrlp_custom_ignore = '.git$\|tmp/\|public/\|.sw[ompn]$\|.DS_STORE$\|bin/\|tags$'
-let g:syntastic_ruby_checkers=['rubocop mri']
+let g:syntastic_ruby_checkers=['rubocop']
 let g:airline_powerline_fonts = 1
 
 :color xoria256
