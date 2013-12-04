@@ -53,6 +53,8 @@ set backup
 set swapfile
 set laststatus=2
 set grepprg=ack
+" keep the changes to the buffer without writing them to the file
+set hidden
 
 cnorea w!! w !sudo tee % > /dev/null
 
