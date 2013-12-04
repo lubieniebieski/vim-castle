@@ -4,10 +4,15 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" plugin manager
 Bundle 'gmarik/vundle'
+" jump to file
 Bundle 'kien/ctrlp.vim'
+" directory viewer
 Bundle 'scrooloose/nerdtree'
+" comments
 Bundle 'scrooloose/nerdcommenter'
+" check code
 Bundle 'scrooloose/syntastic'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-fugitive'
@@ -16,6 +21,18 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'bling/vim-airline'
+" searching
+Bundle 'mileszs/ack.vim'
+" toggling line numbers (relative/absolute)
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+" snipmate dependency
+Bundle 'MarcWeber/vim-addon-mw-utils'
+" snipmate dependency
+Bundle 'tomtom/tlib_vim'
+" textmate-like snippets
+Bundle 'garbas/vim-snipmate'
+" default snippets for snipmate
+Bundle 'honza/vim-snippets'
 
 filetype plugin on
 syntax on
@@ -55,6 +72,10 @@ set laststatus=2
 set grepprg=ack
 " keep the changes to the buffer without writing them to the file
 set hidden
+
+" NERDTree always opens in the current folder.
+set autochdir
+let NERDTreeChDirMode=2
 
 cnorea w!! w !sudo tee % > /dev/null
 
