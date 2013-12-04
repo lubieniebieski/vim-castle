@@ -63,6 +63,9 @@ let g:ctrlp_custom_ignore = '.git$\|tmp/\|public/\|.sw[ompn]$\|.DS_STORE$\|bin/\
 let g:syntastic_ruby_checkers=['rubocop']
 let g:airline_powerline_fonts = 1
 
+" autoremove trailing whitespace
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
 :color xoria256
 
 for mapmode in ["n", "x", "o"]
