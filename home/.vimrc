@@ -34,6 +34,8 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'altercation/vim-colors-solarized'
 set background=dark
+" undo tree
+Bundle 'sjl/gundo.vim'
 
 set encoding=utf-8
 
@@ -79,6 +81,9 @@ map <Leader>d :NERDTreeToggle<CR>
 map <Leader>g :Gstatus<CR>
 " quick access to recently open files
 nmap ; :CtrlPBuffer<CR>
+
+"Gundo toggle
+noremap <F5> :GundoToggle<CR>
 
 let g:ctrlp_custom_ignore = '.git$\|tmp/\|public/\|.sw[ompn]$\|.DS_STORE$\|bin/\|tags$'
 let g:syntastic_ruby_checkers=['rubocop']
