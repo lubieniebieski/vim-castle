@@ -32,6 +32,8 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 " default snippets for snipmate
 Bundle 'honza/vim-snippets'
+Bundle 'altercation/vim-colors-solarized'
+set background=dark
 
 set encoding=utf-8
 
