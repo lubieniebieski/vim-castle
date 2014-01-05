@@ -20,6 +20,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'bling/vim-airline'
+Bundle 'groenewege/vim-less'
 " searching
 Bundle 'mileszs/ack.vim'
 " toggling line numbers (relative/absolute)
@@ -36,6 +37,12 @@ Bundle 'altercation/vim-colors-solarized'
 set background=dark
 " undo tree
 Bundle 'sjl/gundo.vim'
+Bundle 'Townk/vim-autoclose'
+Bundle 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign with a Vim movement
+nmap <Leader>a <Plug>(EasyAlign)
 
 set encoding=utf-8
 
