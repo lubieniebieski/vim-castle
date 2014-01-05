@@ -1,5 +1,4 @@
 set nocompatible
-filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -34,24 +33,20 @@ Bundle 'garbas/vim-snipmate'
 " default snippets for snipmate
 Bundle 'honza/vim-snippets'
 
-filetype plugin on
-syntax on
-
 set encoding=utf-8
-set showmode
 
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
 set autoindent
-set numberwidth=5
+set smartindent
+
 set number
 set wrap
 set linebreak
 set ruler
 set nolazyredraw
-
 set noerrorbells
 set novisualbell
 
@@ -74,7 +69,6 @@ set grepprg=ack
 set hidden
 
 " NERDTree always opens in the current folder.
-set autochdir
 let NERDTreeChDirMode=2
 
 cnorea w!! w !sudo tee % > /dev/null
@@ -91,7 +85,10 @@ let g:airline_powerline_fonts = 1
 " autoremove trailing whitespace
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-:color xoria256
+syntax on
+" solarized options
+let g:solarized_termtrans = 1
+colorscheme solarized
 
 for mapmode in ["n", "x", "o"]
     exe mapmode . "noremap <expr> <Leader>0 LineNumbers()"
