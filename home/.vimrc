@@ -43,6 +43,11 @@ Bundle 'junegunn/vim-easy-align'
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+nmap <silent> <leader>da <Plug>DashGlobalSearch
+
+filetype plugin indent on
 
 set encoding=utf-8
 
@@ -87,7 +92,10 @@ cnorea w!! w !sudo tee % > /dev/null
 map <Leader>d :NERDTreeToggle<CR>
 map <Leader>g :Gstatus<CR>
 " quick access to recently open files
-nmap ; :CtrlPBuffer<CR>
+nmap <Leader>; :CtrlPBuffer<CR>
+nmap <Leader>' cs"'
+nmap <Leader>B :CtrlPBufTagAll<CR>
+nmap <Leader>F :NERDTreeFind<CR>
 
 "Gundo toggle
 noremap <F5> :GundoToggle<CR>
