@@ -106,6 +106,8 @@ let g:airline_powerline_fonts = 1
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 syntax on
+au BufNewFile,BufRead *.hamlc set syntax=haml
+
 colorscheme gruvbox
 set background=dark
 
