@@ -21,8 +21,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'bling/vim-airline'
 Bundle 'groenewege/vim-less'
-" searching
-Bundle 'mileszs/ack.vim'
 " toggling line numbers (relative/absolute)
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 " snipmate dependency
@@ -46,6 +44,7 @@ nmap <Leader>a <Plug>(EasyAlign)
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 nmap <silent> <leader>da <Plug>DashGlobalSearch
+Bundle 'rking/ag.vim'
 
 filetype plugin indent on
 
