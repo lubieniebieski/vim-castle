@@ -93,6 +93,7 @@ nmap <Leader>; :CtrlPBuffer<CR>
 nmap <Leader>' cs"'
 nmap <Leader>B :CtrlPBufTagAll<CR>
 nmap <Leader>F :NERDTreeFind<CR>
+nmap <Leader>hs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 
 "Gundo toggle
 noremap <F5> :GundoToggle<CR>
