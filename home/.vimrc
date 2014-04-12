@@ -31,8 +31,6 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 " default snippets for snipmate
 Bundle 'honza/vim-snippets'
-Bundle 'altercation/vim-colors-solarized'
-set background=dark
 " undo tree
 Bundle 'sjl/gundo.vim'
 Bundle 'Townk/vim-autoclose'
@@ -107,9 +105,8 @@ let g:airline_powerline_fonts = 1
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 syntax on
-" solarized options
-let g:solarized_termtrans = 1
-colorscheme solarized
+colorscheme gruvbox
+set background=dark
 
 for mapmode in ["n", "x", "o"]
     exe mapmode . "noremap <expr> <Leader>0 LineNumbers()"
