@@ -4,19 +4,23 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " plugin manager
+Bundle 'lsdr/monokai'
 Bundle 'gmarik/vundle'
 " jump to file
 Bundle 'kien/ctrlp.vim'
 " directory viewer
 Bundle 'scrooloose/nerdtree'
 " comments
-Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-scripts/tComment'
 " check code
 Bundle 'scrooloose/syntastic'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-ruby'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'bling/vim-airline'
@@ -43,48 +47,101 @@ Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 nmap <silent> <leader>da <Plug>DashGlobalSearch
 Bundle 'rking/ag.vim'
+Bundle 'croaky/vim-colors-github'
+Bundle 'vim-scripts/ctags.vim'
+Bundle 'vim-scripts/matchit.zip'
 
 filetype plugin indent on
+let mapleader = " "
 
-set encoding=utf-8
+augroup vimrcEx
+  autocmd!
 
-set shiftwidth=2
-set softtabstop=2
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+  " Enable spellchecking for Markdown
+  autocmd FileType markdown setlocal spell
+
+  " Automatically wrap at 80 characters for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+augroup END
+
+" Softtabs, 2 spaces
 set tabstop=2
+set shiftwidth=2
 set expandtab
-set autoindent
-set smartindent
 
+" Display extra whitespace
+set list listchars=tab:»·,trail:·
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" Color scheme
+colorscheme github
+syntax on
+set background=light
+set lines=60 columns=200
+highlight NonText guibg=#060606
+highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
+" Numbers
 set number
-set wrap
-set linebreak
-set ruler
-set nolazyredraw
-set noerrorbells
-set novisualbell
+set numberwidth=5
 
-set hlsearch
-set showmatch
-set incsearch
-set ignorecase
-set smartcase
+" Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
+let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
-set magic
+" Index ctags from any project, including those outside Rails
+map <Leader>ct :!ctags -R .<CR>
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" configure syntastic syntax checking to check on open as well as save
+let g:syntastic_check_on_open=1
+
 set pastetoggle=<F2>
-
-set backupdir=~/.vim/tmp/backup/
-set directory=~/.vim/tmp/swap/
-set backup
-set swapfile
-set laststatus=2
-set grepprg=ack
-" keep the changes to the buffer without writing them to the file
-set hidden
-
-" NERDTree always opens in the current folder.
-let NERDTreeChDirMode=2
-
-cnorea w!! w !sudo tee % > /dev/null
 
 map <Leader>d :NERDTreeToggle<CR>
 map <Leader>g :Gstatus<CR>
@@ -99,30 +156,12 @@ nmap <Leader>hs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 noremap <F5> :GundoToggle<CR>
 
 let g:ctrlp_custom_ignore = '.git$\|tmp/\|public/\|.sw[ompn]$\|.DS_STORE$\|bin/\|tags$'
-let g:syntastic_ruby_checkers=['rubocop']
 let g:airline_powerline_fonts = 1
 
 " autoremove trailing whitespace
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-syntax on
-au BufNewFile,BufRead *.hamlc set syntax=haml
-
-colorscheme gruvbox
-set background=dark
-
-for mapmode in ["n", "x", "o"]
-    exe mapmode . "noremap <expr> <Leader>0 LineNumbers()"
-endfor
-
-function! LineNumbers()
-  if exists('+relativenumber')
-    exe "setlocal" &l:rnu ? "nu" :  "rnu"
-  else
-    setl nu!
-  endif
-endfunction
+autocmd BufRead,BufNewFile *.hamlc set filetype=haml
 
 nnoremap Q :q<CR>
 map <Leader>e :e! ~/.vimrc<CR>
-autocmd! bufwritepost .vimrc source ~/.vimrc
