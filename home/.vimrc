@@ -4,7 +4,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " plugin manager
-Bundle 'lsdr/monokai'
 Bundle 'gmarik/vundle'
 " jump to file
 Bundle 'kien/ctrlp.vim'
@@ -13,16 +12,14 @@ Bundle 'scrooloose/nerdtree'
 " comments
 Bundle 'vim-scripts/tComment'
 " check code
-Bundle 'scrooloose/syntastic'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-ruby'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
 Bundle 'bling/vim-airline'
 Bundle 'groenewege/vim-less'
 " toggling line numbers (relative/absolute)
@@ -36,7 +33,6 @@ Bundle 'garbas/vim-snipmate'
 " default snippets for snipmate
 Bundle 'honza/vim-snippets'
 " undo tree
-Bundle 'sjl/gundo.vim'
 Bundle 'Townk/vim-autoclose'
 Bundle 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode
@@ -99,7 +95,7 @@ if executable('ag')
 endif
 
 " Color scheme
-colorscheme monokai
+colorscheme Tomorrow-Night-Eighties
 syntax on
 set lines=60 columns=200
 highlight NonText guibg=#060606
@@ -147,6 +143,7 @@ map <Leader>g :Gstatus<CR>
 " quick access to recently open files
 nmap <Leader>; :CtrlPBuffer<CR>
 nmap <Leader>' cs"'
+nmap <Leader>} cs} }
 nmap <Leader>B :CtrlPBufTagAll<CR>
 nmap <Leader>F :NERDTreeFind<CR>
 nmap <Leader>hs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
