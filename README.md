@@ -8,7 +8,7 @@ clone and link this castle:
 
 ```
 homesick clone lubieniebieski/vim-castle
-homesick symlink lubieniebieski/vim-castle
+homesick symlink vim-castle
 ```
 
 add some `tmp` folders:
