@@ -7,6 +7,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 " jump to file
 Bundle 'kien/ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
+Bundle 'gabrielelana/vim-markdown'
 " directory viewer
 Bundle 'scrooloose/nerdtree'
 " comments
@@ -34,6 +36,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 " undo tree
 Bundle 'Townk/vim-autoclose'
+Bundle 'godlygeek/tabular'
 Bundle 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode
 vmap <Enter> <Plug>(EasyAlign)
@@ -41,7 +44,7 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
-nmap <silent> <leader>da <Plug>DashGlobalSearch
+nmap <silent> <leader>da <Plug>DashSearch
 Bundle 'rking/ag.vim'
 Bundle 'croaky/vim-colors-github'
 Bundle 'vim-scripts/ctags.vim'
@@ -79,8 +82,14 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·
+" Invisible characters
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
+
+" Syntax coloring lines that are too long just slows down the world
+set synmaxcol=1200
+
+" Use only 1 space after "." when joining lines instead of 2
+set nojoinspaces
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -93,11 +102,17 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+hi def link CtrlPMatch CursorLine
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_switch_buffer = 'Et'
+nnoremap <C-b> :CtrlPBuffer<cr>
+" CtrlP Funky
+let g:ctrlp_extensions = ['tag', 'funky']
+let g:ctrlp_funky_multi_buffers = 1
 
 " Color scheme
 colorscheme Tomorrow-Night-Eighties
 syntax on
-set lines=60 columns=200
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
@@ -140,8 +155,6 @@ set pastetoggle=<F2>
 
 map <Leader>d :NERDTreeToggle<CR>
 map <Leader>g :Gstatus<CR>
-" quick access to recently open files
-nmap <Leader>; :CtrlPBuffer<CR>
 nmap <Leader>' cs"'
 nmap <Leader>} cs} }
 nmap <Leader>B :CtrlPBufTagAll<CR>
@@ -161,3 +174,30 @@ autocmd BufRead,BufNewFile *.hamlc set filetype=haml
 
 nnoremap Q :q<CR>
 map <Leader>e :e! ~/.vimrc<CR>
+
+" Backup dirs
+set undodir=~/.vim/tmp/.undo//
+set backupdir=~/.vim/tmp/.backup//
+set directory=~/.vim/tmp/.swp//
+
+set backup
+set swapfile
+set undofile
+"
+" Persist undo
+set undofile
+" maximum number of changes that can be undone
+set undolevels=9999
+" maximum number lines to save for undo on a buffer reload
+set undoreload=9999
+
+" Make those debugger statements painfully obvious
+au BufEnter *.rb syn match error contained "\<binding.pry\>"
+
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+set shortmess=atI
+set hlsearch                    " highlight the search
+set ls=2                        " show a status line even if there's only one window
+set autoread
