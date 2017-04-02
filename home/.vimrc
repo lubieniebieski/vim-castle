@@ -46,7 +46,6 @@ Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 nmap <silent> <leader>da <Plug>DashSearch
 Bundle 'rking/ag.vim'
-Bundle 'croaky/vim-colors-github'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'dracula/vim'
