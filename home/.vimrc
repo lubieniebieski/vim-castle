@@ -161,6 +161,9 @@ nmap <Leader>} cs} }
 nmap <Leader>B :CtrlPBufTagAll<CR>
 nmap <Leader>F :NERDTreeFind<CR>
 nmap <Leader>hs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
+nmap <Leader>f :Ag<space>
+vmap <C-F> y:Ag '<C-R>"'<CR>
+nmap <C-F> yiw:Ag '<C-R>"'<CR>
 
 "Gundo toggle
 noremap <F5> :GundoToggle<CR>
