@@ -49,6 +49,7 @@ Bundle 'rking/ag.vim'
 Bundle 'croaky/vim-colors-github'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/matchit.zip'
+Bundle 'dracula/vim'
 
 filetype plugin indent on
 let mapleader = " "
@@ -111,7 +112,8 @@ let g:ctrlp_extensions = ['tag', 'funky']
 let g:ctrlp_funky_multi_buffers = 1
 
 " Color scheme
-colorscheme Tomorrow-Night-Eighties
+" colorscheme Tomorrow-Night-Eighties
+colorscheme dracula
 syntax on
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
