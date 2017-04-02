@@ -4,51 +4,52 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " plugin manager
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
+
 " jump to file
-Bundle 'kien/ctrlp.vim'
-Bundle 'tacahiroy/ctrlp-funky'
-Bundle 'gabrielelana/vim-markdown'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'gabrielelana/vim-markdown'
 " directory viewer
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 " comments
-Bundle 'vim-scripts/tComment'
+Plugin 'vim-scripts/tComment'
 " check code
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'tpope/vim-surround'
-Bundle 'bling/vim-airline'
-Bundle 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'tpope/vim-surround'
+Plugin 'bling/vim-airline'
+Plugin 'groenewege/vim-less'
 " toggling line numbers (relative/absolute)
-Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 " snipmate dependency
-Bundle 'MarcWeber/vim-addon-mw-utils'
+Plugin 'MarcWeber/vim-addon-mw-utils'
 " snipmate dependency
-Bundle 'tomtom/tlib_vim'
+Plugin 'tomtom/tlib_vim'
 " textmate-like snippets
-Bundle 'garbas/vim-snipmate'
+Plugin 'garbas/vim-snipmate'
 " default snippets for snipmate
-Bundle 'honza/vim-snippets'
+Plugin 'honza/vim-snippets'
 " undo tree
-Bundle 'Townk/vim-autoclose'
-Bundle 'godlygeek/tabular'
-Bundle 'junegunn/vim-easy-align'
+Plugin 'Townk/vim-autoclose'
+Plugin 'godlygeek/tabular'
+Plugin 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
+Plugin 'rizzatti/funcoo.vim'
+Plugin 'rizzatti/dash.vim'
 nmap <silent> <leader>da <Plug>DashSearch
-Bundle 'rking/ag.vim'
-Bundle 'vim-scripts/ctags.vim'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'dracula/vim'
+Plugin 'rking/ag.vim'
+Plugin 'vim-scripts/ctags.vim'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'dracula/vim'
 
 filetype plugin indent on
 let mapleader = " "
