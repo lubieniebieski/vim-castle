@@ -82,9 +82,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Invisible characters
-set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
-
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=1200
 
@@ -120,9 +117,6 @@ highlight Folded  guibg=#0A0A0A guifg=#9090D0
 " Numbers
 set number
 set numberwidth=5
-
-" Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R --exclude='*.js' --exclude='*.coffee' --exclude='vendor' .<CR>
