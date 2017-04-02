@@ -164,6 +164,7 @@ nmap <Leader>hs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 nmap <Leader>f :Ag<space>
 vmap <C-F> y:Ag '<C-R>"'<CR>
 nmap <C-F> yiw:Ag '<C-R>"'<CR>
+nmap cp :let @+ = expand("%")<CR>
 
 "Gundo toggle
 noremap <F5> :GundoToggle<CR>
