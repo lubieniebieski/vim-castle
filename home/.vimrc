@@ -125,7 +125,7 @@ set numberwidth=5
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Index ctags from any project, including those outside Rails
-map <Leader>ct :!ctags -R .<CR>
+map <Leader>ct :!ctags -R --exclude='*.js' --exclude='*.coffee' --exclude='vendor' .<CR>
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
